@@ -63,7 +63,7 @@ def python_plot_triplets(x,y,z,marker,label='',flag_logx=0,flag_logy=0,flag_log_
         #cmaplist = [cmap(i) for i in range(cmap.N)]
         plt.plot(x[zz==i],y[zz==i],marker,markerfacecolor=col,markeredgecolor=col)
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=mi, vmax=ma))
-    plt.colorbar(sm,label=label)
+    plt.colorbar(sm,label=label, ax=plt.gca())
     #plt.clim(mi, ma)
     plt.grid(True)
 
