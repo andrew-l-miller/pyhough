@@ -36,38 +36,46 @@ def remove_doppler(freqs,vec_n,velocities):
     
     return freqs_dopp_corr
 
-def python_plot_triplets(x,y,z,marker,label='',flag_logx=0,flag_logy=0,flag_log_cb=0,colorm='inferno'):
+def python_plot_triplets(x, y, z, marker, label='', flag_logx=0, flag_logy=0, flag_log_cb=0, colorm='inferno', size=10, show_colorbar=True):
+    """
+    Plot triplets (x, y, z) with colormap encoding z values.
 
-    if flag_log_cb==1:
-        z=np.log10(z);
-    
-    #cmap=plt.get_cmap('inferno')
-    cmap=plt.get_cmap(colorm)
-    nc=cmap.N
-    mi=np.min(z);
-    ma=np.max(z);
-    mami=ma-mi;
-    zz=np.floor(nc*0.9999*(z-mi)/mami+1);
+    Parameters:
+    - x, y, z: Data arrays
+    - marker: Marker style for plotting
+    - label: Label for the colorbar
+    - flag_logx, flag_logy: Flags to apply log scale to x or y axes
+    - flag_log_cb: Flag to apply log scaling to colorbar values
+    - colorm: Colormap to use
+    - size: Size of the markers
+    - show_colorbar: Whether to display the colorbar (True/False)
+    """
+    if flag_log_cb == 1:
+        z = np.log10(z)
 
-    fig,ax=plt.subplots()
+    # Define colormap and normalization
+    cmap = plt.get_cmap(colorm)
+    norm = plt.Normalize(vmin=np.min(z), vmax=np.max(z))
 
-    for i in range(nc):
-        col=cmap(i)
-#         if flag_logx==1 & flag_logy!=1:
-#             plt.semilogx(x[zz==i],y[zz==i],marker,markerfacecolor=col,markeredgecolor=col)
-#         elif flag_logy==1 & flag_logx!=1:
-#             plt.semilogy(x[zz==i],y[zz==i],marker,markerfacecolor=col,markeredgecolor=col)
-#         elif flag_logy==1 &flag_logx==1:
-#             plt.loglog(x[zz==i],y[zz==i],marker,markerfacecolor=col,markeredgecolor=col)
-#         else:
-        #cmaplist = [cmap(i) for i in range(cmap.N)]
-        plt.plot(x[zz==i],y[zz==i],marker,markerfacecolor=col,markeredgecolor=col)
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=mi, vmax=ma))
-    plt.colorbar(sm,label=label)
-    #plt.clim(mi, ma)
-    plt.grid(True)
+    # Create the figure and axis
+    fig, ax = plt.subplots()
 
-    return fig,ax
+    # Scatter plot with color mapping
+    sc = ax.scatter(x, y, c=z, cmap=cmap, norm=norm, marker=marker, s=size)
+
+    # Handle log scales
+    if flag_logx:
+        ax.set_xscale('log')
+    if flag_logy:
+        ax.set_yscale('log')
+
+    # Add colorbar if requested
+    if show_colorbar:
+        cbar = fig.colorbar(sc, ax=ax)
+        cbar.set_label(label)
+
+    return fig, ax
+
 
 def make_peakmap_from_spectrogram(alltimes,freqs,normalized_power,threshold=3):
     Ntts = len(alltimes)
@@ -165,3 +173,24 @@ def flatten_spectrogram(alltimes,freqs,normalized_power):
     powss_flat = np.squeeze(powss_flat)
     
     return times_flat,freqs_flat,powss_flat
+
+def project_peaks(pm_freqs,pm_freqs_undopp):
+    """
+    Project a peak map onto the frequency axis.
+
+    Parameters:
+    - peaks: 2D array where peaks[1, :] contains the frequencies
+    - plot_flag: 1 to plot the projected peak map; 0 to skip plotting
+
+    Returns:
+    - fbins: The frequency bins in the peak map
+    - counts: The number of peaks per frequency bin in the projected peak map
+    """
+    # Get the unique frequency bins
+    fbins = np.unique(pm_freqs)
+
+    # Histogram the frequencies into the unique bins
+    counts, fbins = np.histogram(pm_freqs_undopp, bins=fbins)
+
+
+    return fbins[:-1], counts
