@@ -1,10 +1,14 @@
 # pyhough Package
 
-This package provides codes to perform the frequency-Hough transform to search for continuous gravitational waves from asymmetrically rotating neutron stars.
+This package provides codes to perform the (Generalized) frequency-Hough transform to search for (transient) continuous gravitational waves from asymmetrically rotating neutron stars, from primordial black hole binaries, and from newborn neutron stars.
+
+The frequency-Hough transform is a pattern-recognition technique that maps points in the time-frequency plane to lines in the frequency-spindown plane of the source. It is essentially a clever way to search over different time-frequency tracks, where each track corresponds to a particular gravitational-wave signal.
 
 In the package, which builds off of spectrograms created by Pyfstat, one can create a time/frequency peakmap, doppler correct it, and perform the Hough Transform.
 
-The Hough Transform can be applied to either the spectrogram directly or the peakmap.
+The frequency-Hough Transform can be applied to either the spectrogram directly after thresholding (and selecting local maxima) to create the peakmap
+
+The Generalized frequency-Hough transform is implemented, but no Python codes exist yet to inject and recover PBH inspirals or signals from newborn neutron stars. Help is welcome on these fronts.
 
 If you use this code, please cite the public, version-independent Zenodo entry: 
 
