@@ -132,7 +132,5 @@ build/
 # egg-info
 *.egg-info/
 
-# staged-recipes folder (if you don't want it tracked)
-pyhough/staged-recipes/
 
 
