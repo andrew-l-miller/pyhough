@@ -11,6 +11,7 @@ pip install pyhough
 Please contact me if you have any questions!
 
 Note: The frequency-Hough transform algorithm and its implementation for CW searches has been designed and implemented for real searches by the Virgo Rome group of the LVK collaboration. It can be cited as:
+```
 @article{Astone:2014esa,
     author = "Astone, Pia and Colla, Alberto and D'Antonio, Sabrina and Frasca, Sergio and Palomba, Cristiano",
     title = "{Method for all-sky searches of continuous gravitational wave signals using the frequency-Hough transform}",
@@ -24,9 +25,10 @@ Note: The frequency-Hough transform algorithm and its implementation for CW sear
     pages = "042002",
     year = "2014"
 }
-
+```
 The Generalized Frequency-Hough transform has been developed by the Rome Virgo group for transient continuous-wave searches for newborn neutron stars and can be cited as:
 
+```
 @article{Miller:2018rbg,
     author = "Miller, Andrew and others",
     title = "{Method to search for long duration gravitational wave transients from isolated neutron stars using the generalized frequency-Hough transform}",
@@ -40,9 +42,9 @@ The Generalized Frequency-Hough transform has been developed by the Rome Virgo g
     pages = "102004",
     year = "2018"
 }
-
+```
 It has been further generalized to search for gravitational waves from inspiraling planetary-mass primordial black hole binaries:
-
+```
 @article{Miller:2020kmv,
     author = "Miller, Andrew L. and Clesse, S\'ebastien and De Lillo, Federico and Bruno, Giacomo and Depasse, Antoine and Tanasijczuk, Andres",
     title = "{Probing planetary-mass primordial black holes with continuous gravitational waves}",
@@ -55,7 +57,9 @@ It has been further generalized to search for gravitational waves from inspirali
     pages = "100836",
     year = "2021"
 }
+```
 
+```
 @article{Miller:2024jpo,
     author = "Miller, Andrew L. and Aggarwal, Nancy and Clesse, Sebastien and De Lillo, Federico and Sachdev, Surabhi and Astone, Pia and Palomba, Cristiano and Piccinni, Ornella J. and Pierini, Lorenzo",
     title = "{Method to search for inspiraling planetary-mass ultracompact binaries using the generalized frequency-Hough transform in LIGO O3a data}",
@@ -69,3 +73,4 @@ It has been further generalized to search for gravitational waves from inspirali
     pages = "082004",
     year = "2024"
 }
+```
