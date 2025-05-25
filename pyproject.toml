@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling","numpy","pyfstat","matplotlib"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyhough"
+version = "0.0.6"
+license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
+authors = [
+  { name="Andrew L. Miller", email="andrew.miller.ligo@gmail.com" },
+]
+description = "Package to compute the Frequency-Hough Transform to search for continuous gravitational waves in LIGO, Virgo and KAGRA data"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/andrew-l-miller/pyhough"
+Issues = "https://github.com/andrew-l-miller/pyhough/issues"
+Documentation = "https://github.com/andrew-l-miller/pyhough#readme"
+DOI = "https://doi.org/10.5281/zenodo.15512454"

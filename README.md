@@ -1,23 +1,18 @@
-This package contains some basic functions to create time/frequency peakmaps and run the frequency-Hough Transform on them. Users are highly encouraged to go through the [tutorial](https://colab.research.google.com/drive/1Ym90BZyehZbj7cfUZU82jGcJ2J1iBdcU#scrollTo=mYJ6RwMZxxmK) available on [my website](https://andrew-l-miller.github.io/post/tutorial/).
+# pyhough Package
 
-These codes rely on [PyFstat](https://github.com/PyFstat/PyFstat), [LAL](https://doi.org/10.7935/GT1W-FZ16), and codes therein and are conceptually based on the [frequency-Hough transform](https://doi.org/10.1103/PhysRevD.90.042002) and codes in the [Snag toolbox](https://www.mathworks.com/matlabcentral/fileexchange/9703-snag).
+This package provides codes to perform the frequency-Hough transform to search for continuous gravitational waves from asymmetrically rotating neutron stars.
 
-The package [pyhough](https://pypi.org/project/pyhough/) is installable in the following way:
+In the package, which builds off of spectrograms created by Pyfstat, one can create a time/frequency peakmap, doppler correct it, and perform the Hough Transform.
 
-```
-pip install pyhough
+The Hough Transform can be applied to either the spectrogram directly or the peakmap.
 
-```
-Please contact me if you have any questions!
-
-If you use this code, please cite the public, version-independent Zenodo entry:
+If you use this code, please cite the public, version-independent Zenodo entry: 
 
 [![DOI](https://zenodo.org/badge/753611572.svg)](https://doi.org/10.5281/zenodo.15512454)
 
 and also cite the papers that are the basis behind the codes:
 
-
-Note: The frequency-Hough transform algorithm and its implementation for CW searches has been designed and implemented for real searches by the Virgo Rome group of the LVK collaboration. It can be cited as:
+The frequency-Hough has been developed by the Rome Virgo group for all-sky searches for continuous waves from non-axisymmetric, rotating neutron stars and can be cited as:
 ```
 @article{Astone:2014esa,
     author = "Astone, Pia and Colla, Alberto and D'Antonio, Sabrina and Frasca, Sergio and Palomba, Cristiano",
@@ -33,6 +28,7 @@ Note: The frequency-Hough transform algorithm and its implementation for CW sear
     year = "2014"
 }
 ```
+
 The Generalized Frequency-Hough transform has been developed by the Rome Virgo group for transient continuous-wave searches for newborn neutron stars and can be cited as:
 
 ```
@@ -50,7 +46,9 @@ The Generalized Frequency-Hough transform has been developed by the Rome Virgo g
     year = "2018"
 }
 ```
+
 It has been further generalized to search for gravitational waves from inspiraling planetary-mass primordial black hole binaries:
+
 ```
 @article{Miller:2020kmv,
     author = "Miller, Andrew L. and Clesse, S\'ebastien and De Lillo, Federico and Bruno, Giacomo and Depasse, Antoine and Tanasijczuk, Andres",
@@ -64,9 +62,7 @@ It has been further generalized to search for gravitational waves from inspirali
     pages = "100836",
     year = "2021"
 }
-```
 
-```
 @article{Miller:2024jpo,
     author = "Miller, Andrew L. and Aggarwal, Nancy and Clesse, Sebastien and De Lillo, Federico and Sachdev, Surabhi and Astone, Pia and Palomba, Cristiano and Piccinni, Ornella J. and Pierini, Lorenzo",
     title = "{Method to search for inspiraling planetary-mass ultracompact binaries using the generalized frequency-Hough transform in LIGO O3a data}",
@@ -81,3 +77,4 @@ It has been further generalized to search for gravitational waves from inspirali
     year = "2024"
 }
 ```
+
