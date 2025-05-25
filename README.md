@@ -10,6 +10,13 @@ pip install pyhough
 ```
 Please contact me if you have any questions!
 
+If you use this code, please cite the public, version-independent Zenodo entry:
+
+[![DOI](https://zenodo.org/badge/753611572.svg)](https://doi.org/10.5281/zenodo.15512454)
+
+and also cite the papers that are the basis behind the codes:
+
+
 Note: The frequency-Hough transform algorithm and its implementation for CW searches has been designed and implemented for real searches by the Virgo Rome group of the LVK collaboration. It can be cited as:
 ```
 @article{Astone:2014esa,
