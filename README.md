@@ -27,7 +27,7 @@ The Generalized frequency-Hough transform is implemented, but no Python codes ex
 
 ---
 
-#Z Installation
+## Installation
 
 ```bash
 pip install pyhough
