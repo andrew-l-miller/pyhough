@@ -31,7 +31,7 @@ The Generalized frequency-Hough transform is implemented, but no Python codes ex
 
 ```bash
 pip install pyhough
-
+```
 
 If you use this code, please cite the public, version-independent Zenodo entry: 
 
