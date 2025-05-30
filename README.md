@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/753611572.svg)](https://doi.org/10.5281/zenodo.15512454)
 [![PyPI version](https://badge.fury.io/py/pyhough.svg)](https://pypi.org/project/pyhough/)
-![License](https://img.shields.io/github/license/yourusername/pyhough)
+![License](https://img.shields.io/github/license/andrew-l-miller/pyhough)
 
 `pyhough` is a Python package implementing the (Generalized) Frequency-Hough transform for searching **(transient) continuous gravitational waves** from:
 
