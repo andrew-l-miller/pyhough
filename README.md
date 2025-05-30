@@ -33,6 +33,20 @@ The Generalized frequency-Hough transform is implemented, but no Python codes ex
 pip install pyhough
 ```
 
+---
+## Contributions
+
+Contributions are welcome, especially in the following areas:
+
+- Signal injection and recovery tools for PBH binaries and newborn neutron stars
+
+- Unit tests and test coverage
+
+- Improving documentation and usage examples
+
+- Feel free to open issues or submit pull requests!
+
+
 If you use this code, please cite the public, version-independent Zenodo entry: 
 
 [![DOI](https://zenodo.org/badge/753611572.svg)](https://doi.org/10.5281/zenodo.15512454)
