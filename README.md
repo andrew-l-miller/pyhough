@@ -1,14 +1,37 @@
-# pyhough Package
+# pyhough
 
-This package provides codes to perform the (Generalized) frequency-Hough transform to search for (transient) continuous gravitational waves from asymmetrically rotating neutron stars, from primordial black hole binaries, and from newborn neutron stars.
+[![DOI](https://zenodo.org/badge/753611572.svg)](https://doi.org/10.5281/zenodo.15512454)
+[![PyPI version](https://badge.fury.io/py/pyhough.svg)](https://pypi.org/project/pyhough/)
+![License](https://img.shields.io/github/license/yourusername/pyhough)
 
-The frequency-Hough transform is a pattern-recognition technique that maps points in the time-frequency plane to lines in the frequency-spindown plane of the source. It is essentially a clever way to search over different time-frequency tracks, where each track corresponds to a particular gravitational-wave signal.
+`pyhough` is a Python package implementing the (Generalized) Frequency-Hough transform for searching **(transient) continuous gravitational waves** from:
 
-In the package, which builds off of spectrograms created by Pyfstat, one can create a time/frequency peakmap, doppler correct it, and perform the Hough Transform.
+- Asymmetrically rotating neutron stars
+- Planetary-mass primordial black hole (PBH) binaries
+- Newborn neutron stars
+
+This method maps time-frequency tracks from spectrograms (e.g., created by [PyFstat](https://github.com/PyFstat/PyFstat)) into the frequency–spindown parameter space, allowing efficient searches for weak, long-duration gravitational-wave signals.
 
 The frequency-Hough Transform can be applied to either the spectrogram directly after thresholding (and selecting local maxima) to create the peakmap
 
 The Generalized frequency-Hough transform is implemented, but no Python codes exist yet to inject and recover PBH inspirals or signals from newborn neutron stars. Help is welcome on these fronts.
+
+---
+
+## Features
+
+- Construct time–frequency peakmaps from preprocessed data
+- Doppler correction for sources in the sky
+- Standard Frequency-Hough transform for persistent CW signals
+- Generalized Frequency-Hough transform for transient or chirping signals
+
+---
+
+#Z Installation
+
+```bash
+pip install pyhough
+
 
 If you use this code, please cite the public, version-independent Zenodo entry: 
 
