@@ -38,7 +38,7 @@ def hfdf_hough_spectrogram(times,freqs,power,Tsft,sdgrid,threshold,vec_n,vels,re
     return binh_df0
 
 
-def hfdf_hough(times,peak_freqs,Tsft,sdgrid,ref_perc_time):
+def hfdf_hough(times,peak_freqs,Tsft,sdgrid,ref_perc_time=0.):
 
     inif = np.min(peak_freqs)
     finf = np.max(peak_freqs)
@@ -77,3 +77,10 @@ def make_sd_grid(sig_fdot,dsd):
         max_fdot_search = 10 * dsd
     sdgrid = np.arange(min_fdot_search,max_fdot_search,dsd)
     return sdgrid
+
+def make_fdotmin_fdotmax_grid(minfdot,maxfdot,dsd):
+    return np.arange(minfdot,maxfdot,dsd)
+
+
+
+

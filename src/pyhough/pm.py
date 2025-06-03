@@ -194,3 +194,18 @@ def project_peaks(pm_freqs,pm_freqs_undopp):
 
 
     return fbins[:-1], counts
+
+def simulate_spectrogram(Ntimes, Nfreqs, mu=1.0):
+    """
+    Simulate a fake spectrogram where each (time, freq) bin is
+    drawn independently from an exponential distribution.
+
+    Parameters:
+    - Ntimes: number of time bins
+    - Nfreqs: number of frequency bins
+    - mu: mean of exponential distribution
+
+    Returns:
+    - spectrogram: 2D array of shape (Ntimes, Nfreqs)
+    """
+    return np.random.exponential(scale=mu, size=(Ntimes, Nfreqs))
