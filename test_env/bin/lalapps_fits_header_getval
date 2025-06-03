@@ -1,9 +1,0 @@
-#!/Users/andrewmiller/Desktop/NL/cw/tutorials/hough_tutorial/test_env/bin/python
-import os
-import sys
-try:
-    from importlib.resources import files, as_file
-except ImportError:  # FIXME: Python < 3.9
-    from importlib_resources import files, as_file
-with as_file(files('lalapps') / 'bin' / 'lalapps_fits_header_getval') as path:
-    os.execv(path, sys.argv)
