@@ -73,6 +73,9 @@ def python_plot_triplets(x, y, z, marker, label='', flag_logx=0, flag_logy=0, fl
     if show_colorbar:
         cbar = fig.colorbar(sc, ax=ax)
         cbar.set_label(label)
+    ax.set_xlabel('time (days)',size=12)
+    ax.set_ylabel('frequency (Hz)',size=12)
+    plt.tight_layout()
 
     return fig, ax
 
@@ -179,8 +182,8 @@ def project_peaks(pm_freqs,pm_freqs_undopp):
     Project a peak map onto the frequency axis.
 
     Parameters:
-    - peaks: 2D array where peaks[1, :] contains the frequencies
-    - plot_flag: 1 to plot the projected peak map; 0 to skip plotting
+    - pm_freqs: peakmap frequencies before Doppler correction
+    - pm_freqs_undopp: peakamp frequencies after Doppler correction
 
     Returns:
     - fbins: The frequency bins in the peak map
@@ -209,3 +212,22 @@ def simulate_spectrogram(Ntimes, Nfreqs, mu=1.0):
     - spectrogram: 2D array of shape (Ntimes, Nfreqs)
     """
     return np.random.exponential(scale=mu, size=(Ntimes, Nfreqs))
+
+
+def calc_p0_empirical(weights, index, Nfs):
+    """
+    Parameters
+    ----------
+    weights : array-like  – 1 where peaks in particular freq bin kept after science veto, 0 where vetoed
+    index   : (Nt+1,) array of cumulative SFT boundary indices (0-based)
+    Nfs   : number of frequencies 
+
+    Returns
+    -------
+    p0_emp : (Nt,) array – per-SFT empirical peak probability
+    """
+    cum_counts = np.concatenate([[0], np.cumsum(weights)])
+    npeaks_after_veto = np.diff(cum_counts[index])
+    p0_emp = npeaks_after_veto / Nfs
+
+    return p0_emp

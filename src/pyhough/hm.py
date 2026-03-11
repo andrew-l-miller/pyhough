@@ -1,5 +1,6 @@
 import numpy as np
-from pyhough.pm import *
+from pyhough import pm
+import matplotlib.pyplot as plt
 
 def hfdf_hough_spectrogram(times,freqs,power,Tsft,sdgrid,threshold,vec_n,vels,ref_perc_time):
 #### times: unique times array
@@ -23,22 +24,22 @@ def hfdf_hough_spectrogram(times,freqs,power,Tsft,sdgrid,threshold,vec_n,vels,re
             continue
         
         freqs_peaks = freqs[inds_above_thr]
-        freqs_dopp_corr = remove_doppler(freqs_peaks,vec_n,vels[:,t])
-        these_fs = ( freqs_dopp_corr - inif ) / df ;
+        freqs_dopp_corr = pm.remove_doppler(freqs_peaks,vec_n,vels[:,t])
+        these_fs = ( freqs_dopp_corr - inif ) / df 
         tt_df = times[t] / df
         for k in range(Nsds):
             td = sdgrid[k] * tt_df
             inds = np.round(these_fs - td).astype(int) ### f = f0 + fdot(t-t0) solve for f0, f0 = f - fdot(t-t0)
-            ind_of_inds = np.argwhere(inds>=0);
-            a = inds[ind_of_inds];
-            log_inds = a <= Nf0s-1;
-            a = a[log_inds];
+            ind_of_inds = np.argwhere(inds>=0)
+            a = inds[ind_of_inds]
+            log_inds = a <= Nf0s-1
+            a = a[log_inds]
             binh_df0[k,a] = binh_df0[k,a] + 1
     
     return binh_df0
 
 
-def hfdf_hough(times,peak_freqs,Tsft,sdgrid,ref_perc_time=0.):
+def hfdf_hough(times,peak_freqs,Tsft,sdgrid,t0):
 
     inif = np.min(peak_freqs)
     finf = np.max(peak_freqs)
@@ -47,7 +48,7 @@ def hfdf_hough(times,peak_freqs,Tsft,sdgrid,ref_perc_time=0.):
     Nf0s = int(np.ceil((finf-inif)/df))
 
     binh_df0 = np.zeros((Nsds,Nf0s))
-    t0 = np.percentile(times,ref_perc_time)
+    # t0 = np.percentile(times,ref_perc_time)
 
     ii0 = 0
     ii = np.squeeze(np.argwhere(np.diff(times)))
@@ -59,10 +60,10 @@ def hfdf_hough(times,peak_freqs,Tsft,sdgrid,ref_perc_time=0.):
         for k in range(Nsds):
             td = sdgrid[k] * tt_df
             inds = np.round(these_fs - td).astype(int) ### f = f0 + fdot(t-t0) solve for f0, f0 = f - fdot(t-t0)
-            ind_of_inds = np.argwhere(inds>=0);
-            a = inds[ind_of_inds];
-            log_inds = a <= Nf0s-1;
-            a = a[log_inds];
+            ind_of_inds = np.argwhere(inds>=0)
+            a = inds[ind_of_inds]
+            log_inds = a <= Nf0s-1
+            a = a[log_inds]
             binh_df0[k,a] = binh_df0[k,a] + 1
             
             
@@ -82,5 +83,20 @@ def make_fdotmin_fdotmax_grid(minfdot,maxfdot,dsd):
     return np.arange(minfdot,maxfdot,dsd)
 
 
+def plot_hm(fs,sds,hmap,fmean=None):
+
+    fig, ax = plt.subplots()#figsize=(0.8 * 16, 0.8 * 9))
+    ax.set(ylabel="Spin-down [Hz/s]", xlabel="Frequency [Hz]")#, ylim=(99.98, 100.02))
+    c = ax.pcolormesh(
+        fs,
+        sds,
+        hmap,
+        cmap="inferno",
+        shading="nearest",
+    )
+    fig.colorbar(c, label="number count")
+    if fmean is not None:
+        ax.set(xlim=(fmean-0.05,fmean+0.05))
+    plt.tight_layout()
 
 
