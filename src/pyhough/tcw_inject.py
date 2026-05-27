@@ -1,11 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import glob
-import time
+# import time
 
-
-import sys
-sys.path.append("../../../gwosc")
 
 from create_sfdbs.read_sfdb import sfdb_read_an_FFT
 from create_sfdbs.convert_sciseg_file import load_sciseg_file,time_in_science
@@ -249,7 +246,7 @@ else:
     pass
     # cand2,more_info = cand_sel.hfdf_peak_transients(hmap,info,int(np.sqrt(kcand)),deltaf=0,dn=0)
 ### select significant candidates in the Hough map
-
+cand2 = cand2[:,np.any(cand2 != 0, axis=0)]
 
 ### Since the hough map is created at reference time epoch, (1/2 through Tobs), need to shift source parameters to that time
 
