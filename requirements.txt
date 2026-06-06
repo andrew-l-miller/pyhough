@@ -1,0 +1,7 @@
+matplotlib==3.5.2
+numba==0.60.0
+numpy==1.23.5
+PyFstat==2.0.2
+scipy==1.9.1
+gwosc-cw
+numba

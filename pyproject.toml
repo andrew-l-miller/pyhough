@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyhough"
-version = "0.0.10"
+version = "0.0.12"
 license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
 authors = [
   { name="Andrew L. Miller", email="andrew.miller.ligo@gmail.com" },
@@ -16,6 +16,8 @@ dependencies = [
     "numpy",
     "pyfstat",
     "matplotlib",
+    "gwosc-cw",
+    "numba",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",

@@ -41,7 +41,7 @@ h0 = 4.973e-23 / 2
 ### flags about which hough to use, whether to downsample, what noise to use, whether to plot, and whehter to extract sub-band or not
 
 white_noise = True
-downsamp = False
+downsamp = True
 band = True
 plot = True
 gfh_nonuni = True
