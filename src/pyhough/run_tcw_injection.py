@@ -582,21 +582,21 @@ def run_tcw_injection(args, inj_provider=None):
 #
 # The custom provider is passed directly to run_tcw_injection().
 
-sys.argv = [
-    "run_tcw_injection.py",
-    "--minf", "850",
-    "--maxf", "860",
-]
+# sys.argv = [
+#     "run_tcw_injection.py",
+#     "--minf", "850",
+#     "--maxf", "860",
+# ]
 
-args = parse_args()
+# args = parse_args()
 
-my_provider = provider_injections.provider_sinusoid_drift(
-    f0=855,
-    fdot=0,
-    h0=1e-22,
-)
+# my_provider = provider_injections.provider_sinusoid_drift(
+#     f0=855,
+#     fdot=0,
+#     h0=1e-22,
+# )
 
-run_tcw_injection(args, inj_provider=my_provider)
+# run_tcw_injection(args, inj_provider=my_provider)
 #
 # sys.exit()
 
@@ -610,22 +610,22 @@ run_tcw_injection(args, inj_provider=my_provider)
 # The custom provider is passed directly to run_tcw_injection().
 
 
-# sys.argv = [
-#     "run_tcw_injection.py",
-#     "--minf", "800",
-#     "--maxf", "888",
-# ]
+sys.argv = [
+    "run_tcw_injection.py",
+    "--minf", "800",
+    "--maxf", "888",
+]
 
-# args = parse_args()
+args = parse_args()
 
-# my_provider = provider_injections.provider_power_law(
-#     f0=800,
-#     h0=2.4865e-23,
-#     mc=4e-4,
-#     n=11/3,
-# )
+my_provider = provider_injections.provider_power_law(
+    f0=800,
+    h0=2.4865e-23,
+    mc=4e-4,
+    n=11/3,
+)
 
-# run_tcw_injection(args, inj_provider=my_provider)
+run_tcw_injection(args, inj_provider=my_provider)
 
 
 # =============================================================================
