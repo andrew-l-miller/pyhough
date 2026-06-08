@@ -1,10 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import glob
-import sys
 from pyhough import pm,hm
-
-sys.path.append("../../../gwosc")
 
 from create_sfdbs.read_sfdb import sfdb_read_an_FFT
 from create_sfdbs.convert_sciseg_file import load_sciseg_file,time_in_science
